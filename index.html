@@ -168,7 +168,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(31, 42, 68, 0.9), rgba(31, 42, 68, 0.8)), url('assets/images/kanzlei.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(31, 42, 68, 0.92), rgba(31, 42, 68, 0.85));
             color: var(--color-white);
             display: flex;
             align-items: center;
@@ -176,9 +176,32 @@
             padding: 6rem 1.5rem 7rem;
         }
 
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .hero-content {
-            max-width: 680px;
-            text-align: left;
+            max-width: 640px;
+            text-align: center;
+        }
+
+        .hero-media {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-media img {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 12px;
+            box-shadow: 0 24px 48px rgba(12, 20, 36, 0.35);
         }
 
         .hero h1 {
@@ -652,6 +675,14 @@
             main {
                 padding-top: 72px;
             }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 600px) {
@@ -661,7 +692,7 @@
 
             .cta-group {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             .profile-content,
@@ -681,6 +712,24 @@
         @media (min-width: 768px) {
             .profile-content {
                 grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            }
+
+            .hero-inner {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .cta-group {
+                justify-content: flex-start;
+            }
+
+            .hero-media {
+                justify-content: flex-end;
             }
         }
 
@@ -726,12 +775,17 @@
     </header>
     <main id="top">
         <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-content">
-                <h1 id="hero-heading">Spezialisierte Rechtsberatung im Versicherungs- und Haftungsrecht</h1>
-                <p>Wir begleiten Versicherer, Unternehmen und Institutionen mit strategischer Prozessführung, tiefem Branchenverständnis und konsequenter Durchsetzung Ihrer Interessen.</p>
-                <div class="cta-group">
-                    <a class="btn btn-primary" href="#kontakt">Beratung anfragen</a>
-                    <a class="btn btn-link" href="#profil">Mehr über die Kanzlei</a>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 id="hero-heading">Spezialisierte Rechtsberatung im Versicherungs- und Haftungsrecht</h1>
+                    <p>Wir begleiten Versicherer, Unternehmen und Institutionen mit strategischer Prozessführung, tiefem Branchenverständnis und konsequenter Durchsetzung Ihrer Interessen.</p>
+                    <div class="cta-group">
+                        <a class="btn btn-primary" href="#kontakt">Beratung anfragen</a>
+                        <a class="btn btn-link" href="#profil">Mehr über die Kanzlei</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="Borck Böttcher Team.jpg" alt="Rechtsanwälte Johannes Borck und Markus Böttcher - Borck Böttcher Legal">
                 </div>
             </div>
         </section>
