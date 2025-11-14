@@ -41,7 +41,7 @@ Dieses Projekt befindet sich in aktiver Entwicklung.
    cd landingpageborckboettcher
    git pull
    ```
-2. Platzieren Sie das Kanzleifoto als `assets/images/kanzlei.jpg`, damit der Hero-Bereich und das Profilbild korrekt angezeigt werden.
+2. Platzieren Sie das Teamfoto als `Borck Böttcher Team.jpg` im Projektstammverzeichnis und das Kanzleifoto als `assets/images/kanzlei.jpg`, damit Hero- und Profilbereich korrekt angezeigt werden.
 3. Öffnen Sie `index.html` direkt im Browser oder starten Sie einen lokalen Webserver, z. B.:
    ```bash
    python -m http.server 8000
