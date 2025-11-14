@@ -3,166 +3,994 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Borck Böttcher Legal - Ihre Rechtsanwaltskanzlei für kompetente juristische Beratung">
-    <meta name="keywords" content="Rechtsanwalt, Rechtsberatung, Anwaltskanzlei, Legal">
-    <title>Borck Böttcher Legal | Rechtsanwaltskanzlei</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Borck Böttcher Legal | Spezialisierte Rechtsberatung</title>
+    <meta name="description" content="Borck Böttcher Legal – Spezialisierte Rechtsberatung im Versicherungs- und Haftungsrecht.">
+    <style>
+        :root {
+            --color-primary: #0d0d0d;
+            --color-secondary: #1f1f1f;
+            --color-accent: #3a3a3a;
+            --color-text: #111111;
+            --color-muted: #5a5a5a;
+            --color-light: #f2f2f2;
+            --color-white: #ffffff;
+            --font-serif: 'Times New Roman', Times, 'Nimbus Roman No9 L', serif;
+            --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-serif);
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .brand-signature {
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: end;
+            column-gap: 2.75rem;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            letter-spacing: 0.42em;
+            font-weight: 600;
+        }
+
+        .brand-signature span:last-child {
+            letter-spacing: 0.6em;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            color: var(--color-secondary);
+            font-family: var(--font-sans);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 0.35rem;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
+            background: var(--color-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        nav a:focus,
+        nav a:hover {
+            outline: none;
+            color: var(--color-primary);
+        }
+
+        nav a:focus::after,
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        main {
+            padding-top: 80px;
+        }
+
+        section {
+            padding: 4rem 1.5rem;
+        }
+
+        .section-heading {
+            font-family: var(--font-sans);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.26em;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            color: var(--color-muted);
+        }
+
+        .hero {
+            background: var(--color-white);
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 1.5rem 7rem;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: stretch;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            max-width: 560px;
+        }
+
+        .hero-media {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .hero-media img {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 10px;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero h1 {
+            font-family: var(--font-sans);
+            font-size: clamp(2.1rem, 5vw, 3.1rem);
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: var(--color-muted);
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 2.1rem;
+            border-radius: 999px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 1px solid var(--color-primary);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: transparent;
+            color: var(--color-primary);
+        }
+
+        .btn-link {
+            color: var(--color-secondary);
+            border-radius: 0;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--color-secondary);
+        }
+
+        .btn-link:hover,
+        .btn-link:focus {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .profile {
+            background: var(--color-white);
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .profile-text {
+            display: grid;
+            gap: 1.1rem;
+        }
+
+        .profile-text p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: var(--color-text);
+        }
+
+        .profile-media {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.1);
+            background: var(--color-light);
+            min-height: 260px;
+        }
+
+        .profile-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .focus-areas {
+            background: var(--color-light);
+        }
+
+        .focus-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .focus-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .focus-card:hover,
+        .focus-card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+        }
+
+        .focus-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .focus-card ul {
+            padding-left: 1.1rem;
+            margin: 0;
+            color: var(--color-muted);
+        }
+
+        .team {
+            background: var(--color-white);
+        }
+
+        .team-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .team-card {
+            border-radius: 18px;
+            padding: 2rem;
+            background: var(--color-white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            display: grid;
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .team-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18));
+            color: var(--color-white);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+        }
+
+        .team-photo span {
+            font-size: 0.85rem;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .team-card h3 {
+            margin: 0;
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .team-card .role {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            color: var(--color-muted);
+        }
+
+        .team-card p {
+            margin: 0;
+            color: var(--color-text);
+        }
+
+        .team-card ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: var(--color-muted);
+        }
+
+        .clients {
+            background: var(--color-light);
+        }
+
+        .clients-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .clients-grid p {
+            margin: 0;
+            color: var(--color-text);
+        }
+
+        .contact {
+            background: var(--color-white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-details {
+            background: var(--color-light);
+            padding: 2rem;
+            border-radius: 18px;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-details h3 {
+            margin: 0;
+            font-family: var(--font-sans);
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+        }
+
+        .contact-details address {
+            font-style: normal;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .contact-details a {
+            color: var(--color-secondary);
+        }
+
+        form {
+            background: var(--color-white);
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--color-secondary);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            font-family: var(--font-sans);
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .privacy {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .privacy input {
+            margin-top: 0.25rem;
+        }
+
+        .privacy label {
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        .btn-submit {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 999px;
+            border: 1px solid var(--color-primary);
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+        }
+
+        .btn-submit:hover,
+        .btn-submit:focus {
+            background: transparent;
+            color: var(--color-primary);
+            outline: none;
+        }
+
+        footer {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            padding: 2.5rem 1.5rem;
+            border-top: 1px solid #d9d9d9;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        .footer-links a {
+            color: var(--color-secondary);
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover::after,
+        .footer-links a:focus::after {
+            transform: scaleX(1);
+        }
+
+        .footer-bottom {
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .team-card {
+                grid-template-columns: auto;
+                justify-items: start;
+            }
+
+            .contact-wrapper {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .focus-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: var(--color-white);
+                border: 1px solid #d9d9d9;
+                border-radius: 12px;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+                flex-direction: column;
+                align-items: flex-start;
+                width: 220px;
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+                transform: translateY(-10px);
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition);
+            }
+
+            nav ul.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            main {
+                padding-top: 72px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 6rem 1.2rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-content,
+            .clients-grid {
+                gap: 1.25rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+
+            footer {
+                padding: 2rem 1.25rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile-content {
+                grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            }
+
+            .hero-inner {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .cta-group {
+                justify-content: flex-start;
+            }
+
+            .hero-media {
+                justify-content: flex-end;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .focus-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>Borck Böttcher Legal</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#leistungen">Leistungen</a></li>
+        <div class="nav-container">
+            <div class="brand">
+                <a class="brand-signature" href="#top" aria-label="Borck Böttcher Legal – Startseite">
+                    <span>BORCK BÖTTCHER</span>
+                    <span>LEGAL</span>
+                </a>
+            </div>
+            <div class="menu-toggle" aria-label="Navigation umschalten" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#schwerpunkte">Schwerpunkte</a></li>
                     <li><a href="#team">Team</a></li>
+                    <li><a href="#mandanten">Mandanteninformationen</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Ihre kompetente Rechtsberatung</h2>
-                <p>Professionelle juristische Unterstützung mit Erfahrung und Engagement</p>
-                <a href="#kontakt" class="btn btn-primary">Jetzt Beratung anfragen</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leistungen Section -->
-    <section id="leistungen" class="services">
-        <div class="container">
-            <h2 class="section-title">Unsere Leistungen</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">⚖️</div>
-                    <h3>Zivilrecht</h3>
-                    <p>Umfassende Beratung in allen Bereichen des Zivilrechts</p>
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 id="hero-heading">Spezialisierte Rechtsberatung im Versicherungs- und Haftungsrecht</h1>
+                    <p>Wir begleiten Versicherer, Unternehmen und Institutionen mit strategischer Prozessführung, tiefem Branchenverständnis und konsequenter Durchsetzung Ihrer Interessen.</p>
+                    <div class="cta-group">
+                        <a class="btn btn-primary" href="#kontakt">Beratung anfragen</a>
+                        <a class="btn btn-link" href="#profil">Mehr über die Kanzlei</a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🏢</div>
-                    <h3>Wirtschaftsrecht</h3>
-                    <p>Spezialisierte Lösungen für Unternehmen und Selbstständige</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">💼</div>
-                    <h3>Arbeitsrecht</h3>
-                    <p>Vertretung für Arbeitnehmer und Arbeitgeber</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">🏠</div>
-                    <h3>Immobilienrecht</h3>
-                    <p>Expertise in Kauf, Verkauf und Vermietung</p>
+                <div class="hero-media">
+                    <img src="Borck Böttcher Team.jpg" alt="Rechtsanwälte Joachim Borck und Steffen Böttcher - Borck Böttcher Legal">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Unser Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-photo"></div>
-                    <h3>RA Johannes Borck</h3>
-                    <p class="position">Partner</p>
-                    <p>Spezialisiert auf Wirtschafts- und Vertragsrecht</p>
+        <section id="profil" class="profile" aria-labelledby="profil-heading">
+            <div class="profile-content">
+                <div class="profile-text">
+                    <h2 class="section-heading" id="profil-heading">Profil</h2>
+                    <p>Bei Borck Böttcher Legal erhalten Sie fokussierte Beratung im Versicherungsrecht, Verkehrsrecht, Haftungsrecht sowie im Regress der Sozialversicherungsträger. Wir bündeln Expertise aus spezialisierten Fachanwaltschaften mit profunder Branchenkenntnis.</p>
+                    <p>Wir begleiten komplexe Streitigkeiten, Großschadensfälle und die prozessuale Durchsetzung anspruchsvoller Ansprüche. Unsere Mandanten vertrauen auf präzise Analysen, taktische Verhandlungsführung und konsequente gerichtliche Vertretung.</p>
+                    <p>Sie profitieren von erfahrenen Ansprechpartnern, die strategische Prozessführung, Verlässlichkeit und transparente Kommunikation miteinander verbinden. Gemeinsam schaffen wir belastbare Lösungen, die Ihre wirtschaftlichen Ziele sichern.</p>
                 </div>
-                <div class="team-member">
-                    <div class="member-photo"></div>
-                    <h3>RA Sarah Böttcher</h3>
-                    <p class="position">Partnerin</p>
-                    <p>Expertin für Arbeits- und Zivilrecht</p>
+                <figure class="profile-media">
+                    <img src="assets/images/kanzlei.jpg" alt="Teamfoto von Borck Böttcher Legal in den Kanzleiräumen" loading="lazy">
+                    <figcaption class="visually-hidden">Teamfoto der Kanzlei Borck Böttcher Legal</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="schwerpunkte" class="focus-areas" aria-labelledby="schwerpunkte-heading">
+            <div class="focus-wrapper" style="max-width:1200px;margin:0 auto;">
+                <h2 class="section-heading" id="schwerpunkte-heading">Schwerpunkte</h2>
+                <p class="section-intro">Unsere spezialisierten Tätigkeitsfelder bieten Ihnen eine klare Orientierung für passgenaue Beratung und Prozessführung.</p>
+                <div class="focus-grid">
+                    <article class="focus-card">
+                        <h3>Versicherungsrecht &amp; Deckungsprozesse</h3>
+                        <ul>
+                            <li>Begutachtung von Deckungsfragen und Policen</li>
+                            <li>Verhandlung und Durchsetzung von Versicherungsansprüchen</li>
+                            <li>Strategische Prozessvertretung bei Deckungsklagen</li>
+                        </ul>
+                    </article>
+                    <article class="focus-card">
+                        <h3>Verkehrsrecht &amp; Haftung</h3>
+                        <ul>
+                            <li>Regulierung von Verkehrsunfällen und Großschäden</li>
+                            <li>Abwehr und Durchsetzung von Haftungsansprüchen</li>
+                            <li>Beratung zu Risiko- und Schadensmanagement</li>
+                        </ul>
+                    </article>
+                    <article class="focus-card">
+                        <h3>Personen- und Großschadensfälle</h3>
+                        <ul>
+                            <li>Begleitung komplexer Personenschäden</li>
+                            <li>Koordination medizinischer und juristischer Gutachten</li>
+                            <li>Langfristige Prozessstrategien für hohe Streitwerte</li>
+                        </ul>
+                    </article>
+                    <article class="focus-card">
+                        <h3>Regress der Sozialversicherungsträger</h3>
+                        <ul>
+                            <li>Durchsetzung regressualer Ansprüche</li>
+                            <li>Analyse von Haftungstatbeständen und Kostenerstattungen</li>
+                            <li>Vertretung gegenüber Unternehmen und Versicherern</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Kontakt Section -->
-    <section id="kontakt" class="contact">
-        <div class="container">
-            <h2 class="section-title">Kontakt aufnehmen</h2>
+        <section id="team" class="team" aria-labelledby="team-heading">
+            <div style="max-width:1100px;margin:0 auto;display:grid;gap:1.5rem;">
+                <h2 class="section-heading" id="team-heading">Das Team</h2>
+                <div class="team-grid">
+                    <article class="team-card">
+                        <div class="team-photo" aria-hidden="true"><span>JB</span></div>
+                        <div class="team-info">
+                            <h3>Rechtsanwalt Joachim Borck</h3>
+                            <p class="role">Namenspartner · Fachanwalt für Verkehrsrecht · Fachanwalt für Versicherungsrecht</p>
+                            <p>Joachim Borck steht für strategische Prozessführung in komplexen Schadenslagen. Sie profitieren von seiner langjährigen Erfahrung in Deckungs- und Haftungsprozessen sowie von seiner souveränen Begleitung in Verhandlungen und vor Gericht.</p>
+                            <ul>
+                                <li>Schwerpunkte: Deckungsprozesse, Verkehrsunfallhaftung, komplexe Großschäden</li>
+                                <li>Mitgliedschaften: Deutscher Anwaltverein · Arbeitsgemeinschaft Versicherungsrecht &amp; Verkehrsrecht</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-photo" aria-hidden="true"><span>SB</span></div>
+                        <div class="team-info">
+                            <h3>Rechtsanwalt Steffen Böttcher</h3>
+                            <p class="role">Namenspartner · Fachanwalt für Arbeitsrecht · Fachanwalt für Bau- und Architektenrecht</p>
+                            <p>Steffen Böttcher führt Sie sicher durch anspruchsvolle Bau- und arbeitsrechtliche Auseinandersetzungen. Mit analytischem Blick und klarer Kommunikation strukturiert er komplexe Sachverhalte und setzt Ihre Interessen entschlossen durch.</p>
+                            <ul>
+                                <li>Schwerpunkte: Arbeitsrechtliche Streitigkeiten, Bau- und Architektenhaftung, prozessuale Risikoabwägung</li>
+                                <li>Mitgliedschaften: Deutscher Anwaltverein · Arbeitsgemeinschaft Arbeitsrecht &amp; Baurecht</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="mandanten" class="clients" aria-labelledby="mandanten-heading">
+            <div class="clients-grid">
+                <h2 class="section-heading" id="mandanten-heading">Mandanteninformationen &amp; Arbeitsweise</h2>
+                <p>Unsere Mandanten sind Versicherungsunternehmen, große und mittelständische Betriebe, gesetzliche Krankenkassen sowie Privatmandanten, die Unterstützung in komplexen Haftungsfragen benötigen.</p>
+                <p>Wir arbeiten analytisch, prozessorientiert und mit offener Kommunikation. Sie erhalten klare Einschätzungen, strukturierte Handlungsempfehlungen und proaktive Updates zu jedem Verfahrensstand.</p>
+                <p>Für die Erstberatung bitten wir um relevante Unterlagen wie Versicherungsverträge, Korrespondenzen, Gutachten oder polizeiliche Akten. Wir begleiten Sie von der frühzeitigen Fallbewertung bis zur finalen Durchsetzung Ihrer Ansprüche.</p>
+            </div>
+        </section>
+
+        <section id="kontakt" class="contact" aria-labelledby="kontakt-heading">
             <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Kanzlei Borck Böttcher Legal</h3>
-                    <p><strong>Adresse:</strong><br>
-                    Musterstraße 123<br>
-                    10115 Berlin</p>
-                    <p><strong>Telefon:</strong> +49 30 12345678</p>
-                    <p><strong>E-Mail:</strong> info@borck-boettcher-legal.de</p>
-                    <p><strong>Öffnungszeiten:</strong><br>
-                    Mo-Fr: 9:00 - 18:00 Uhr</p>
+                <div class="contact-details">
+                    <h3 id="kontakt-heading">Kontakt</h3>
+                    <address>
+                        Borck Böttcher Legal<br>
+                        Königsufer 18<br>
+                        04109 Leipzig
+                    </address>
+                    <p><strong>Telefon:</strong> <a href="tel:+49302123000">+49 30 2123 000</a></p>
+                    <p><strong>E-Mail:</strong> <a href="mailto:kontakt@borck-boettcher-legal.de">kontakt@borck-boettcher-legal.de</a></p>
+                    <p><strong>Bürozeiten:</strong><br>Montag – Freitag: 8:30 – 18:30 Uhr</p>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-Mail *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Ihre Nachricht *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Nachricht senden</button>
-                    </form>
-                </div>
+                <form action="#" method="post" aria-label="Kontaktformular">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" inputmode="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Betreff</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nachricht *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="privacy">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">Ich habe die Datenschutzhinweise gelesen und akzeptiere sie.</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Nachricht senden</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+        </section>
+    </main>
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Borck Böttcher Legal</h4>
-                    <p>Ihre vertrauensvolle Rechtsberatung in Berlin</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Schnelllinks</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#leistungen">Leistungen</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#kontakt">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Rechtliches</h4>
-                    <ul>
-                        <li><a href="#impressum">Impressum</a></li>
-                        <li><a href="#datenschutz">Datenschutz</a></li>
-                    </ul>
+        <div class="footer-container">
+            <div class="footer-top">
+                <strong>Borck Böttcher Legal</strong>
+                <div class="footer-links">
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Borck Böttcher Legal. Alle Rechte vorbehalten.</p>
-            </div>
+            <div class="footer-bottom">&copy; 2025 Borck Böttcher Legal. Alle Rechte vorbehalten.</div>
         </div>
     </footer>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('nav ul');
 
-    <script src="js/main.js"></script>
+        const toggleMenu = () => {
+            navList.classList.toggle('open');
+        };
+
+        toggle.addEventListener('click', toggleMenu);
+        toggle.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        document.querySelectorAll('nav a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
