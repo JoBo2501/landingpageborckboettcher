@@ -34,5 +34,19 @@ Moderne, professionelle Landingpage für die Rechtsanwaltskanzlei Borck Böttche
 ## Entwicklung
 Dieses Projekt befindet sich in aktiver Entwicklung.
 
+## Landingpage lokal ansehen
+1. Repository aktualisieren oder klonen:
+   ```bash
+   git clone <repo-url>
+   cd landingpageborckboettcher
+   git pull
+   ```
+2. Platzieren Sie das Kanzleifoto als `assets/images/kanzlei.jpg`, damit der Hero-Bereich und das Profilbild korrekt angezeigt werden.
+3. Öffnen Sie `index.html` direkt im Browser oder starten Sie einen lokalen Webserver, z. B.:
+   ```bash
+   python -m http.server 8000
+   ```
+   und rufen Sie anschließend `http://localhost:8000` auf.
+
 ## Lizenz
 © 2025 Borck Böttcher Legal. Alle Rechte vorbehalten.
